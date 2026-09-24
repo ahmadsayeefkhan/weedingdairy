@@ -1,0 +1,87 @@
+1
+00:00:00,500 --> 00:00:15,194
+ওয়েডিং ডায়েরিতে আপনাকে স্বাগতম। Welcome to Wedding Diary, the wedding operating system for Bangladeshi couples, their families, planners and vendors. Let's take a quick tour.
+
+2
+00:00:16,194 --> 00:00:35,406
+Getting started takes a minute. Enter the bride and groom's names and the wedding date, shown in the Bangla calendar too. Pick your events, Holud, Mehendi, Wedding and Reception, and set a budget. Wedding Diary builds your plan from there.
+
+3
+00:00:36,406 --> 00:00:58,330
+The dashboard is your command centre. A countdown to the big day, your planning progress, and a coloured ribbon for each event. Budget, guests, vendors and tasks are one tap away, and anything that needs attention, like a payment due or pending RSVPs, is right at the top.
+
+4
+00:00:59,330 --> 00:01:11,126
+Every event gets its own hour by hour timeline, from the bridal makeup to the Bidaai. Change a time, and the whole family team is notified instantly.
+
+5
+00:01:12,126 --> 00:01:26,562
+The smart checklist is generated for you, with culturally relevant tasks like tasting the kacchi, booking the Kazi, and preparing the Holud dala. Due dates count back from your wedding day.
+
+6
+00:01:27,562 --> 00:01:40,942
+Budget analytics shows every taka against your plan, category by category, in lakh. It warns you when a category runs over, and suggests where to move money.
+
+7
+00:01:41,942 --> 00:01:57,482
+When a vendor accepts your booking, a payment schedule appears automatically: booking, advance and final settlement. Pay with bKash, Nagad, card or cash, and your budget updates itself.
+
+8
+00:01:58,482 --> 00:02:12,846
+Manage guests from the bride's side and the groom's side, with relations, events, seats and dietary needs. Send every pending invitation in one tap, and export the list for the caterer.
+
+9
+00:02:13,846 --> 00:02:25,306
+Guests don't need an app. They open their personal link, accept or decline, choose seats and dietary needs, and the couple sees it instantly.
+
+10
+00:02:26,306 --> 00:02:37,286
+The seating planner seats confirmed guests by table. Auto assign keeps each family together and never goes over a table's capacity.
+
+11
+00:02:38,286 --> 00:02:49,050
+Design a digital invitation for the Holud, the wedding or the reception, in Bangla, English, or both, and share it with a QR code.
+
+12
+00:02:50,050 --> 00:03:06,646
+The vendor marketplace brings verified photographers, venues, caterers, decorators and more. An AI match score ranks vendors by your remaining budget, your city, real ratings, and availability on your date.
+
+13
+00:03:07,646 --> 00:03:23,066
+Every profile shows packages and verified reviews from couples who actually booked. If a vendor is already taken on your date, Wedding Diary instantly suggests backup vendors at a similar price.
+
+14
+00:03:24,066 --> 00:03:37,038
+Ask the AI wedding assistant anything, in English, Bangla, or Banglish. It answers from your own wedding data, and it never shares guests' phone numbers.
+
+15
+00:03:38,038 --> 00:03:49,810
+Invite parents, siblings and your planner. The couple controls everything, the planner can edit but can't see money, and family members can view.
+
+16
+00:03:50,810 --> 00:04:07,238
+On the wedding day, switch to Live Mode. See what's happening now and what's next, shift the schedule if you're running late, check guests in, track vendor readiness, and send a broadcast or an SOS to the whole team.
+
+17
+00:04:08,238 --> 00:04:16,794
+Guests scan a QR code to share their photos, with no login. The couple approves them first.
+
+18
+00:04:17,794 --> 00:04:26,566
+Approved photos play live on the venue's big screen, with the QR code in the corner inviting more guests to join in.
+
+19
+00:04:27,566 --> 00:04:37,490
+After the celebrations, the Memory Vault keeps every photo, organised by event, with favourites and full resolution downloads.
+
+20
+00:04:38,490 --> 00:04:50,670
+Vendors get VendorOS: accept booking requests, track revenue and payouts, manage packages and availability, and update their status on the wedding day.
+
+21
+00:04:51,670 --> 00:05:01,690
+And the Wedding Diary team gets an admin console to approve vendors, moderate reviews, and review every AI question and message.
+
+22
+00:05:02,690 --> 00:05:14,390
+Mobile first, bilingual, and built for Bangladeshi weddings. Wedding Diary. Redefining wedding experiences, digitally.
