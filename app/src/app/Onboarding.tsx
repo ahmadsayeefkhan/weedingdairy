@@ -25,8 +25,8 @@ export default function Onboarding() {
           <div style={{ width: 96, height: 96, borderRadius: "50%", border: "1.5px solid rgba(255,255,255,.7)", display: "grid", placeItems: "center" }}>
             <Logo size={56} color="#fff" />
           </div>
-          <div style={{ fontSize: 40, fontWeight: 300, lineHeight: 1 }}>Wedding<br />Diary</div>
-          <div style={{ letterSpacing: "0.5em", fontSize: 12, opacity: 0.85 }}>BANGLADESH</div>
+          <div className="serif" style={{ fontSize: 44, lineHeight: 1.05 }}>Wedding<br />Diary</div>
+          <div style={{ letterSpacing: "0.5em", fontSize: 11, fontWeight: 700, color: "#e5dfd8" }}>BANGLADESH</div>
         </div>
       </main>
     );
@@ -39,20 +39,20 @@ export default function Onboarding() {
       <div className="ambient" />
       <div className="auth-card card stack-lg" style={{ padding: 28, textAlign: "center" }}>
         <div className="row between">
-          <span className="row" style={{ gap: 8 }}><Logo size={24} /><span className="small">Wedding Diary</span></span>
+          <span className="row" style={{ gap: 8 }}><Logo size={24} /><span className="serif">Wedding Diary</span></span>
           <Link href="/login" className="linkish">Skip</Link>
         </div>
-        <div style={{ margin: "18px auto 4px", width: 128, height: 128, borderRadius: 32, display: "grid", placeItems: "center", background: "var(--coral-soft)", color: "var(--coral-ink)", position: "relative" }}>
+        <div style={{ margin: "18px auto 4px", width: 128, height: 128, borderRadius: 32, display: "grid", placeItems: "center", background: "var(--blush)", border: "1px solid var(--line)", color: "var(--ink)", position: "relative" }}>
           <Icon name={s.icon} width={52} height={52} />
           <span style={{ position: "absolute", bottom: -6, left: 30, right: 30, height: 5, borderRadius: 9, background: s.ev }} />
         </div>
         <div className="stack">
-          <h1 style={{ fontSize: 26, color: "var(--coral-ink)" }}>{s.title}</h1>
+          <h1 style={{ fontSize: 30 }}>{s.title}</h1>
           <p className="muted">{s.body}</p>
         </div>
         <div className="row" style={{ justifyContent: "center", gap: 6 }} aria-label={`Step ${i + 1} of ${SLIDES.length}`}>
           {SLIDES.map((_, k) => (
-            <button key={k} onClick={() => setI(k)} aria-label={`Go to step ${k + 1}`} style={{ width: k === i ? 22 : 8, height: 8, borderRadius: 9, border: 0, background: k === i ? "var(--coral)" : "var(--line-2)", transition: "width .2s", cursor: "pointer" }} />
+            <button key={k} onClick={() => setI(k)} aria-label={`Go to step ${k + 1}`} style={{ width: k === i ? 22 : 8, height: 8, borderRadius: 9, border: 0, background: k === i ? "var(--accent)" : "var(--line-2)", transition: "width .2s", cursor: "pointer" }} />
           ))}
         </div>
         {last ? (

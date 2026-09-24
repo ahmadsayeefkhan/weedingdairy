@@ -32,7 +32,7 @@ export default async function SettingsPage() {
             <label className="field"><span>City</span><select className="input" name="city" defaultValue={wedding.city}>{CITIES.map((c) => <option key={c}>{c}</option>)}</select></label>
             <label className="field" style={{ gridColumn: "1 / -1" }}><span>Main venue</span><input className="input" name="venue" defaultValue={wedding.venueName ?? ""} /></label>
           </div>
-          <label className="row small" style={{ gap: 8 }}><input type="checkbox" name="moveEvents" defaultChecked style={{ accentColor: "var(--coral)", width: 18, height: 18 }} />If the date changes, move my events and open task deadlines by the same number of days</label>
+          <label className="row small" style={{ gap: 8 }}><input type="checkbox" name="moveEvents" defaultChecked style={{ accentColor: "var(--accent)", width: 18, height: 18 }} />If the date changes, move my events and open task deadlines by the same number of days</label>
         </section>
         <section className="card stack">
           <h2 style={{ fontSize: 17 }}>Privacy</h2>
@@ -44,7 +44,7 @@ export default async function SettingsPage() {
               ))}
             </div>
           </fieldset>
-          <label className="row small" style={{ gap: 8 }}><input type="checkbox" name="autoApprove" defaultChecked={wedding.photoAutoApprove} style={{ accentColor: "var(--coral)", width: 18, height: 18 }} />Show guest photos on the live wall without approval</label>
+          <label className="row small" style={{ gap: 8 }}><input type="checkbox" name="autoApprove" defaultChecked={wedding.photoAutoApprove} style={{ accentColor: "var(--accent)", width: 18, height: 18 }} />Show guest photos on the live wall without approval</label>
         </section>
         <section className="card stack">
           <h2 style={{ fontSize: 17 }}>Notifications</h2>

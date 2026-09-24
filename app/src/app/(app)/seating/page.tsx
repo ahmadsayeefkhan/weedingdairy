@@ -44,7 +44,7 @@ export default async function SeatingPage() {
                   <div key={t.id} className="card" style={{ padding: 14 }}>
                     <div className="row between"><b style={{ fontWeight: 500 }}>{t.name}</b>{editable && t.guests.length === 0 && <form action={deleteTable}><input type="hidden" name="id" value={t.id} /><button className="linkish bad" aria-label={`Delete ${t.name}`}><Icon name="trash" width={14} height={14} /></button></form>}</div>
                     <div className="tiny muted">{t.label ?? "No label"}</div>
-                    <div className="seat-ring" style={{ background: `conic-gradient(var(--coral) ${pct * 360}deg, var(--coral-soft) 0)` }}>
+                    <div className="seat-ring" style={{ background: `conic-gradient(var(--accent) ${pct * 360}deg, var(--accent-soft) 0)` }}>
                       <div style={{ width: 92, height: 92, borderRadius: "50%", background: "#fff", display: "grid", placeItems: "center" }}>
                         <div><div className="num" style={{ fontSize: 22 }}>{used}/{t.capacity}</div><div className="tiny muted">seats</div></div>
                       </div>
@@ -77,7 +77,7 @@ export default async function SeatingPage() {
         </section>
 
         <aside className="card" style={{ alignSelf: "start" }}>
-          <div className="card-title"><h3>Unassigned guests</h3><span className="badge coral">{unassigned.length}</span></div>
+          <div className="card-title"><h3>Unassigned guests</h3><span className="badge accent">{unassigned.length}</span></div>
           {unassigned.length === 0 ? <p className="small muted">Every confirmed guest has a seat.</p> : (
             <div className="list">
               {unassigned.map((g) => (

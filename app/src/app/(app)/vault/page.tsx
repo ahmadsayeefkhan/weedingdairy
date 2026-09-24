@@ -90,7 +90,7 @@ export default async function VaultPage({ searchParams }: { searchParams: Promis
                   <div className="cap">{p.caption ? `${p.caption} · ` : ""}{p.uploadedBy}</div>
                   <div className="tl-actions">
                     {editable && (
-                      <form action={moderatePhoto}><input type="hidden" name="id" value={p.id} /><button name="action" value="favorite" className="chip" style={{ padding: 4, background: "rgba(255,255,255,.9)" }} aria-label={p.favorite ? "Remove from favorites" : "Add to favorites"}><Icon name="heart" width={14} height={14} fill={p.favorite ? "var(--coral)" : "none"} /></button></form>
+                      <form action={moderatePhoto}><input type="hidden" name="id" value={p.id} /><button name="action" value="favorite" className="chip" style={{ padding: 4, background: "rgba(255,255,255,.9)" }} aria-label={p.favorite ? "Remove from favorites" : "Add to favorites"}><Icon name="heart" width={14} height={14} fill={p.favorite ? "var(--accent)" : "none"} /></button></form>
                     )}
                     <a href={p.path} download className="chip" style={{ padding: 4, background: "rgba(255,255,255,.9)" }} aria-label="Download original"><Icon name="download" width={14} height={14} /></a>
                   </div>

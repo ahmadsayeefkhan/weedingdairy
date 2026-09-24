@@ -4,7 +4,7 @@
 | # | Risk | Mitigation |
 |---|---|---|
 | R1 | Brief covers ~80 features; V1 cannot build all of them to quality | V1 = Phase 01 MVP; everything else is listed as later |
-| R2 | ITC Avant Garde Gothic is a licensed font | Use a free geometric look-alike (Questrial + Jost weights); swap for the licensed font later |
+| R2 | ITC Avant Garde Gothic is a licensed font | Superseded 2026-09-24: the app now uses the brand guideline's Playfair Display + Mulish (free Google Fonts), so no licence is needed |
 | R3 | AI costs | Scripted fallback; no key needed; AI log with cost |
 
 ## Assumptions
@@ -23,7 +23,7 @@
 
 ## Decisions
 - D1 Stack: Next.js + Prisma + SQLite (default per CLAUDE.md).
-- D2 Brand: coral #D97566 primary, light coral #FF8B7A, white, and navy #2B2D42-ish for dark panels; logo red is used only in the logo.
+- D2 Brand (revised 2026-09-24, owner decision): follows `Current Brand Guideline/`. Ink #111 + white + ivory #FAF7F2 backgrounds; ONE accent, "diary red" #B3242B, deepened from the logo red #E91C24 (the old coral #D97566 is retired). Playfair Display headings, Mulish 16px body, Tiro Bangla / Hind Siliguri for Bangla. Black uppercase buttons, tracked eyebrows. Signature: a red ribbon bookmark on page titles, the active menu item and the dashboard.
 - D3 Bengali typeface: Hind Siliguri (brand audit recommends adding one).
 - D4 Messaging via an in-app outbox (no real sends).
 

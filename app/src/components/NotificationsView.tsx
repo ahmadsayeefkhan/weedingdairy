@@ -18,7 +18,7 @@ export async function NotificationsView({ userId }: { userId: string }) {
               <div key={n.id} className="row" style={{ gap: 12, alignItems: "flex-start" }}>
                 <span className="icon-chip"><Icon name="bell" /></span>
                 <div className="grow">
-                  <div className="row" style={{ gap: 8 }}>{n.title}{unreadIds.includes(n.id) && <span className="badge coral">New</span>}</div>
+                  <div className="row" style={{ gap: 8 }}>{n.title}{unreadIds.includes(n.id) && <span className="badge accent">New</span>}</div>
                   <div className="small muted">{n.body}</div>
                 </div>
                 <span className="tiny faint">{fmtShort(n.createdAt)}</span>

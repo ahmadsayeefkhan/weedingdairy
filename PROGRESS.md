@@ -18,7 +18,8 @@ Phase: 4 (complete) · Current slice: none · Last updated: 2026-09-24
 - [x] Slice 10: AI Wedding Assistant (Claude + scripted fallback, logged)
 - [x] Slice 11: admin console, settings, data export, EN/বাংলা
 - [x] Slice 12: independent review (10 findings fixed), README, user manual PDF (`docs/`)
-- Tests on a fresh seed: typecheck ✓ · lint ✓ · smoke 96/96 · e2e 44/44
+- [x] Brand restyle to `Current Brand Guideline/` (diary red, ink/ivory, Playfair + Mulish, ribbon bookmark)
+- Tests on a fresh seed: typecheck ✓ · lint ✓ · smoke 96/96 · e2e 46/46
 
 ## Next (later versions, not started)
 - Real payment gateway (bKash / Nagad / SSLCommerz), real SMS/WhatsApp/email adapters
@@ -28,9 +29,10 @@ Phase: 4 (complete) · Current slice: none · Last updated: 2026-09-24
 
 ## Open issues / blockers
 - None blocking. Client questions are in `plan/05_raid.md` (Open questions).
+- The user manual PDF (`docs/`) and the explainer video still show the old coral look; regenerate them from fresh screenshots.
 
 ## Declined by user (do not re-propose)
 - (none)
 
 ## Decisions made without asking (see plan/05_raid.md)
-- Payment split 20/50/30, default budget split, demo "today" fixed at 2026-09-24, Jost as the font stand-in, vector logo stand-in, uploads stored outside `public/`, AI assistant daily cap of 60 questions per user.
+- Payment split 20/50/30, default budget split, demo "today" fixed at 2026-09-24, brand restyle to the current brand guideline (diary red #B3242B, Playfair + Mulish), vector logo stand-in, uploads stored outside `public/`, AI assistant daily cap of 60 questions per user.

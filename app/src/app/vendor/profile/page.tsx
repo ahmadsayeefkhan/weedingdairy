@@ -21,7 +21,7 @@ export default async function VendorProfileEdit() {
       </PageHead>
       <div className="split">
         <ActionForm action={updateProfile} className="card stack">
-          <div className="row between"><h2 style={{ fontSize: 17 }}>Business profile</h2><span className="badge coral">{VENDOR_CATEGORIES[v.category]?.name}</span></div>
+          <div className="row between"><h2 style={{ fontSize: 17 }}>Business profile</h2><span className="badge accent">{VENDOR_CATEGORIES[v.category]?.name}</span></div>
           <label className="field"><span>Business name</span><input className="input" name="name" defaultValue={v.name} required /></label>
           <label className="field"><span>About</span><textarea className="input" name="about" defaultValue={v.about} rows={4} required /></label>
           <div className="form-grid">

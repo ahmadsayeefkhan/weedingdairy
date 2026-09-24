@@ -15,7 +15,7 @@ export default async function SharePage({ params }: { params: Promise<{ code: st
   return (
     <main style={{ position: "relative", zIndex: 1, padding: "24px 16px 60px", maxWidth: 560, margin: "0 auto" }} className="stack-lg">
       <div className="ambient" />
-      <div className="row" style={{ justifyContent: "center", gap: 8 }}><Logo size={26} /><span className="small">Wedding Diary</span></div>
+      <div className="row" style={{ justifyContent: "center", gap: 8 }}><Logo size={26} /><span className="serif" style={{ fontSize: 17 }}>Wedding Diary</span></div>
       <section className="card" style={{ background: m.color, color: "#fff", border: 0, textAlign: "center" }}>
         <div className="eyebrow" style={{ color: "rgba(255,255,255,.8)" }}>Live photo sharing</div>
         <h1 style={{ fontSize: 26, fontWeight: 400, marginTop: 4 }}>{ev.wedding.brideName} &amp; {ev.wedding.groomName}</h1>

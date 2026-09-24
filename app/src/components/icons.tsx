@@ -56,10 +56,10 @@ export function Icon({ name, ...p }: { name: IconName } & SVGProps<SVGSVGElement
   );
 }
 
-/** Open-book "WD" monogram, redrawn as a vector stand-in for the official logo (see RAID Q3). */
-export function Logo({ size = 34, color = "var(--coral)" }: { size?: number; color?: string }) {
+/** Open-book "WD" monogram in diary red, a vector stand-in for the official logo (see RAID Q3). Strokes get heavier at small sizes, where the brand guideline found the hairline logo breaks down. */
+export function Logo({ size = 34, color = "var(--accent)" }: { size?: number; color?: string }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" stroke={color} strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-label="Wedding Diary">
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" stroke={color} strokeWidth={size < 30 ? 3 : 2.5} strokeLinecap="round" strokeLinejoin="round" aria-label="Wedding Diary">
       <path d="M24 38C19 33 10 32 4 33V13c6-1 15 0 20 5 5-5 14-6 20-5v20c-6-1-15 0-20 5z" />
       <path d="M24 18v20" />
       <path d="M24 16c-2.6-3.6-7.6-2.2-7.6 1.6 0 3.6 7.6 8 7.6 8s7.6-4.4 7.6-8c0-3.8-5-5.2-7.6-1.6z" fill={color} fillOpacity={0.15} />

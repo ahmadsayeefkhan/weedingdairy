@@ -3,7 +3,7 @@
 ## Stack
 - Next.js (App Router, TypeScript) in `app/`, using server components and server actions.
 - Prisma + SQLite (`app/prisma/dev.db`), so it runs locally with no keys.
-- Plain CSS with design tokens (coral system from the App UI deck), mobile-first. Bottom tab bar on phones, sidebar on desktop.
+- Plain CSS with design tokens (Wedding Diary brand guideline: ink, ivory, diary red, Playfair + Mulish; see RAID D2), mobile-first. Bottom tab bar on phones, sidebar on desktop.
 - Auth: email + bcrypt, a random session token in the DB, an httpOnly cookie.
 - AI: `@anthropic-ai/sdk`, with the model ID in `.env` (`AI_MODEL`); scripted fallback when `ANTHROPIC_API_KEY` is unset.
 - Tests: `scripts/smoke.mjs` (fetch) and `scripts/e2e.mjs` (playwright-core on installed Chrome).

@@ -31,14 +31,14 @@ export default function Chat({ greeting, suggestions, live }: { greeting: string
     <div className="card pad-0" style={{ display: "grid", gridTemplateRows: "auto 1fr auto", height: "min(72vh, 720px)" }}>
       <div className="row between" style={{ padding: "14px 18px", borderBottom: "1px solid var(--line)" }}>
         <div className="row" style={{ gap: 10 }}>
-          <span className="avatar" style={{ background: "var(--coral)", color: "#fff" }}><Icon name="sparkle" width={16} height={16} /></span>
+          <span className="avatar" style={{ background: "var(--accent)", color: "#fff" }}><Icon name="sparkle" width={16} height={16} /></span>
           <div><div>Wedding AI</div><div className="tiny" style={{ color: "var(--ok)" }}>● {live ? "Online · Claude" : "Offline mode · answers from your data"}</div></div>
         </div>
       </div>
       <div style={{ overflowY: "auto", padding: 18, display: "grid", gap: 12, alignContent: "start" }} aria-live="polite">
         {msgs.map((m, i) => (
           <div key={i} style={{ justifySelf: m.role === "user" ? "end" : "start", maxWidth: "82%" }}>
-            <div style={{ whiteSpace: "pre-wrap", padding: "10px 14px", borderRadius: 14, fontSize: 14.5, ...(m.role === "user" ? { background: "var(--coral)", color: "#fff", borderBottomRightRadius: 4 } : { background: "var(--coral-soft)", borderBottomLeftRadius: 4 }) }}>{m.text}</div>
+            <div style={{ whiteSpace: "pre-wrap", padding: "10px 14px", borderRadius: 14, fontSize: 14.5, ...(m.role === "user" ? { background: "var(--ink)", color: "#fff", borderBottomRightRadius: 4 } : { background: "var(--accent-soft)", borderBottomLeftRadius: 4 }) }}>{m.text}</div>
             {m.mode === "scripted" && <div className="tiny faint" style={{ marginTop: 3 }}>scripted</div>}
           </div>
         ))}

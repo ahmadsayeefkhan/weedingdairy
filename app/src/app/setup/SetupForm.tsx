@@ -49,7 +49,7 @@ export default function SetupForm({ minDate, defaultDate }: { minDate: string; d
       </fieldset>
       <label className="field">
         <span>Budget range</span>
-        <input type="range" min={100000} max={10000000} step={50000} value={budget} onChange={(e) => setBudget(Number(e.target.value))} style={{ accentColor: "var(--coral)" }} aria-valuetext={`৳${groupLakh(budget)}`} />
+        <input type="range" min={100000} max={10000000} step={50000} value={budget} onChange={(e) => setBudget(Number(e.target.value))} style={{ accentColor: "var(--accent)" }} aria-valuetext={`৳${groupLakh(budget)}`} />
         <input type="hidden" name="budget" value={budget} />
         <span style={{ fontSize: 22, textTransform: "none", letterSpacing: 0, color: "var(--ink)" }} className="num">৳{groupLakh(budget)}</span>
       </label>

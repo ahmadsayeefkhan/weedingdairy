@@ -13,7 +13,7 @@ export default async function InvitationsPage() {
   const { wedding } = await requireWedding(["COUPLE", "PLANNER"]);
   const main = await db.event.findFirst({ where: { weddingId: wedding.id, type: wedding.inviteTemplate }, orderBy: { date: "asc" } });
   const url = `/i/${wedding.publicCode}`;
-  const qr = await QRCode.toDataURL(`${await origin()}${url}`, { margin: 1, width: 240, color: { dark: "#2b2530", light: "#ffffff" } });
+  const qr = await QRCode.toDataURL(`${await origin()}${url}`, { margin: 1, width: 240, color: { dark: "#111111", light: "#ffffff" } });
   const sent = await db.notification.count({ where: { weddingId: wedding.id, title: { startsWith: "Invitation" } } });
 
   return (

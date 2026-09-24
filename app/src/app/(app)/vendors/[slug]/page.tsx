@@ -35,10 +35,10 @@ export default async function VendorProfile({ params, searchParams }: { params: 
     <div className="stack-lg">
       <Link href="/vendors" className="linkish row" style={{ gap: 6 }}><Icon name="back" width={16} height={16} />Marketplace</Link>
       <section className="card pad-0" style={{ overflow: "hidden" }}>
-        <div style={{ height: 240, backgroundImage: `linear-gradient(transparent 40%, rgba(30,15,20,.75)), url(${v.cover})`, backgroundSize: "cover", backgroundPosition: "center", display: "flex", alignItems: "flex-end", padding: 22, color: "#fff" }}>
+        <div style={{ height: 240, backgroundImage: `linear-gradient(transparent 40%, rgba(17,17,17,.78)), url(${v.cover})`, backgroundSize: "cover", backgroundPosition: "center", display: "flex", alignItems: "flex-end", padding: 22, color: "#fff" }}>
           <div className="row between wrap grow" style={{ gap: 12 }}>
             <div>
-              <div className="row wrap" style={{ gap: 6 }}><span className="badge coral">{VENDOR_CATEGORIES[v.category]?.name}</span><span className="badge ok"><Icon name="shield" width={11} height={11} />Verified</span>{v.featured && <span className="badge dark">Featured</span>}</div>
+              <div className="row wrap" style={{ gap: 6 }}><span className="badge accent">{VENDOR_CATEGORIES[v.category]?.name}</span><span className="badge ok"><Icon name="shield" width={11} height={11} />Verified</span>{v.featured && <span className="badge dark">Featured</span>}</div>
               <h1 style={{ fontSize: 32, fontWeight: 400, marginTop: 6 }}>{v.name}</h1>
               <div className="row small" style={{ gap: 6, opacity: 0.9 }}><Icon name="pin" width={14} height={14} />{v.area ? `${v.area}, ` : ""}{v.city}{v.capacity ? ` · up to ${v.capacity} guests` : ""}</div>
             </div>

@@ -65,7 +65,7 @@ export function Donut({ segments, size = 180, stroke = 22, center }: { segments:
   return (
     <div style={{ position: "relative", width: size, height: size }}>
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label={segments.map((s) => `${s.label} ${Math.round((s.value / (total || 1)) * 100)}%`).join(", ")}>
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--coral-soft)" strokeWidth={stroke} />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--accent-soft)" strokeWidth={stroke} />
         {total > 0 && segments.filter((s) => s.value > 0).map((s) => {
           const len = (s.value / total) * c;
           const el = (

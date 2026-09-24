@@ -26,7 +26,7 @@ export default function Slideshow({ code, initial, title, sub, qr, color }: { co
   }, [code]);
   const p = photos.length ? photos[i % photos.length] : null;
   return (
-    <main style={{ position: "fixed", inset: 0, background: "#120d10", color: "#fff", overflow: "hidden" }}>
+    <main style={{ position: "fixed", inset: 0, background: "#111111", color: "#fff", overflow: "hidden" }}>
       {p ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img key={p.id} src={p.src} alt={p.caption ?? `Photo by ${p.by}`} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", animation: "tvfade 1s ease" }} />

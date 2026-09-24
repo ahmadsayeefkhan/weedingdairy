@@ -31,7 +31,7 @@ export function Shell({ items, tabs, children, who, footer, brandSub = "BANGLADE
                 <Link href={it.href} aria-current={isActive(path, it.href) ? "page" : undefined}>
                   <Icon name={it.icon} />
                   <span className="grow">{it.label}</span>
-                  {!!it.badge && <span className="badge coral" style={{ padding: "1px 7px" }}>{it.badge}</span>}
+                  {!!it.badge && <span className="badge accent" style={{ padding: "1px 7px" }}>{it.badge}</span>}
                 </Link>
               </div>
             );
@@ -44,7 +44,7 @@ export function Shell({ items, tabs, children, who, footer, brandSub = "BANGLADE
         <div className="topbar-actions">
           <Link href={items.find((i) => i.icon === "bell")?.href ?? "/more"} aria-label="Notifications" className="row" style={{ position: "relative" }}>
             <Icon name="bell" width={22} height={22} />
-            {!!items.find((i) => i.icon === "bell")?.badge && <span style={{ position: "absolute", top: -3, right: -3, width: 9, height: 9, background: "var(--coral)", borderRadius: 9 }} />}
+            {!!items.find((i) => i.icon === "bell")?.badge && <span style={{ position: "absolute", top: -3, right: -3, width: 9, height: 9, background: "var(--accent)", borderRadius: 9 }} />}
           </Link>
           <form action={logout}>
             <button className="icon-btn" aria-label="Sign out" title="Sign out"><Icon name="logout" width={22} height={22} /></button>

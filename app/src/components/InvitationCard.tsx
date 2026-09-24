@@ -2,7 +2,7 @@ import { bengaliDate, fmtDate, fmtDay } from "@/lib/format";
 
 const THEMES: Record<string, { bg: string; ink: string; accent: string; bnTitle: string; enTitle: string; motif: string }> = {
   HOLUD: { bg: "linear-gradient(160deg,#fff4d6,#f9d77e 70%,#f2b640)", ink: "#5a3a06", accent: "#c98a12", bnTitle: "গায়ে হলুদ", enTitle: "Gaye Holud", motif: "#e59a12" },
-  WEDDING: { bg: "linear-gradient(160deg,#fffaf7,#fbe6e2 70%,#f5c9c0)", ink: "#5b2a22", accent: "#d97566", bnTitle: "শুভ বিবাহ", enTitle: "Save the Date", motif: "#d97566" },
+  WEDDING: { bg: "linear-gradient(160deg,#fffdf9,#f6e4e2 70%,#ecc7c3)", ink: "#4a1216", accent: "#b3242b", bnTitle: "শুভ বিবাহ", enTitle: "Save the Date", motif: "#b3242b" },
   RECEPTION: { bg: "linear-gradient(160deg,#f6f0fa,#e3d4ee 70%,#c7aedb)", ink: "#34214a", accent: "#7a5c8e", bnTitle: "বৌভাত", enTitle: "Reception", motif: "#b08a3e" },
 };
 
@@ -20,7 +20,7 @@ export function InvitationCard({ template, lang, message, bride, groom, date, ve
         {bn && <div className="bn" style={{ fontSize: 26, color: th.accent, marginTop: 10 }}>{th.bnTitle}</div>}
         {en && <div style={{ fontSize: 11, letterSpacing: "0.34em", textTransform: "uppercase", color: th.accent }}>{th.enTitle}</div>}
         {en && <div style={{ fontStyle: "italic", fontWeight: 300, fontSize: 14 }}>{message}</div>}
-        <div style={{ fontSize: 38, fontWeight: 300, lineHeight: 1.05, margin: "6px 0" }}>{bride}<div style={{ fontSize: 22, color: th.accent }}>&amp;</div>{groom}</div>
+        <div className="serif" style={{ fontSize: 38, lineHeight: 1.1, margin: "6px 0" }}>{bride}<div style={{ fontSize: 22, color: th.accent }}>&amp;</div>{groom}</div>
         <div style={{ width: 60, height: 1, background: th.accent, margin: "0 auto" }} />
         {en && <div style={{ fontSize: 17 }}>{fmtDay(date)}, {fmtDate(date)}</div>}
         {bn && <div className="bn" style={{ fontSize: 16 }}>{fmtDate(date, "bn")} · {bengaliDate(date)}</div>}

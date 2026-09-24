@@ -28,7 +28,7 @@ export default async function AiLog() {
                   <td className="small faint">{fmtShort(l.createdAt)}</td>
                   <td className="small">{l.user.name}<div className="tiny faint">{l.wedding ? `${l.wedding.brideName} & ${l.wedding.groomName}` : ""}</div></td>
                   <td className="small"><b style={{ fontWeight: 500 }}>{l.question}</b><div className="muted" style={{ whiteSpace: "pre-wrap", maxWidth: 520 }}>{l.answer.slice(0, 300)}{l.answer.length > 300 ? "…" : ""}</div></td>
-                  <td className="hide-sm small"><span className={`badge ${l.mode === "scripted" ? "" : "coral"}`}>{l.mode}</span><div className="tiny faint">{l.tools || "no tools"}</div></td>
+                  <td className="hide-sm small"><span className={`badge ${l.mode === "scripted" ? "" : "accent"}`}>{l.mode}</span><div className="tiny faint">{l.tools || "no tools"}</div></td>
                   <td className="right hide-sm num small">{l.tokensIn + l.tokensOut || "–"}{l.costUsd ? <div className="tiny faint">${l.costUsd.toFixed(4)}</div> : null}</td>
                 </tr>
               ))}

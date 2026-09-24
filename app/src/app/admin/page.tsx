@@ -38,7 +38,7 @@ export default async function AdminHome() {
           </div>
         </section>
         <section className="card dark stack">
-          <div className="eyebrow" style={{ color: "#b9b3c2" }}>AI engine</div>
+          <div className="eyebrow" style={{ color: "#b5afa8" }}>AI engine</div>
           <div className="row between"><span>Questions answered</span><b className="num">{aiQs}</b></div>
           <div className="row between"><span>Photos in vaults</span><b className="num">{photos}</b></div>
           <Link href="/admin/ai" className="btn quiet sm" style={{ width: "fit-content" }}>Open AI log</Link>

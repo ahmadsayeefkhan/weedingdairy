@@ -83,7 +83,7 @@ Use a plan that runs Node.js apps with persistent storage: Hostinger's Node.js w
 
 - **Payments** are simulated (sandbox checkout; no money moves). The gateway (bKash / Nagad / SSLCommerz) is for Phase 2.
 - **SMS, WhatsApp and email** are written to the in-app outbox (Admin → Message outbox); nothing is sent.
-- **Font:** Jost stands in for the licensed ITC Avant Garde Gothic. **Logo:** a redrawn vector stand-in for the WD monogram until the official SVG is supplied.
+- **Brand:** follows the current Wedding Diary brand guideline (Playfair Display + Mulish, ink and ivory, one "diary red" accent from the logo). **Logo:** a redrawn vector stand-in for the WD monogram until the official SVG is supplied.
 - **Photos** in the demo are generated abstract artwork, not real people.
 - The payment split (20/50/30) and the default budget split are assumptions to confirm (see `plan/05_raid.md`).
 - Later versions: native apps, AI face recognition, reels and highlights, live video streaming, AR, accommodation, transport, gift registry, 2FA.

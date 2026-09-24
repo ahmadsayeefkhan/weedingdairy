@@ -17,7 +17,7 @@ export default async function InvitePage({ params }: { params: Promise<{ code: s
   return (
     <main style={{ position: "relative", zIndex: 1, padding: "28px 16px 60px", maxWidth: 560, margin: "0 auto" }} className="stack-lg">
       <div className="ambient" />
-      <div className="row" style={{ justifyContent: "center", gap: 8 }}><Logo size={26} /><span className="small">Wedding Diary</span></div>
+      <div className="row" style={{ justifyContent: "center", gap: 8 }}><Logo size={26} /><span className="serif" style={{ fontSize: 17 }}>Wedding Diary</span></div>
       <InvitationCard template={w.inviteTemplate} lang={w.inviteLang} message={w.inviteMessage} bride={w.brideName} groom={w.groomName} date={main?.date ?? w.date} venue={main?.venue ?? w.venueName} />
       {w.visibility === "PUBLIC" && (
         <section className="card list">

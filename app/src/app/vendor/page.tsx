@@ -44,14 +44,14 @@ export default async function VendorDashboard() {
             {trend.map((t) => (
               <div key={t.m.toISOString()} className="grow" style={{ display: "grid", justifyItems: "center", gap: 6 }}>
                 <span className="small num">{t.n}</span>
-                <div style={{ width: "100%", maxWidth: 46, height: `${(t.n / max) * 120 + 4}px`, background: "linear-gradient(var(--coral-2), var(--coral))", borderRadius: "8px 8px 3px 3px" }} />
+                <div style={{ width: "100%", maxWidth: 46, height: `${(t.n / max) * 120 + 4}px`, background: "var(--accent)", borderRadius: "3px 3px 0 0" }} />
                 <span className="tiny muted">{t.m.toLocaleString("en", { month: "short", timeZone: "UTC" })}</span>
               </div>
             ))}
           </div>
         </section>
         <section className="card dark stack">
-          <div className="eyebrow" style={{ color: "#b9b3c2" }}>Next payout</div>
+          <div className="eyebrow" style={{ color: "#b5afa8" }}>Next payout</div>
           {nextPayout ? (<><div className="num" style={{ fontSize: 34 }}>{taka(nextPayout.amount)}</div><div className="muted small">Due from the couple on {fmtDate(nextPayout.dueDate)}</div></>) : <div className="muted">No payments due yet.</div>}
           <div className="tiny muted">Payments are simulated in this demo; real payouts arrive with the payment gateway in Phase 2.</div>
         </section>

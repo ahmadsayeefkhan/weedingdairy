@@ -55,7 +55,7 @@ export default async function Checklist({ searchParams }: { searchParams: Promis
                   {editable ? (
                     <form action={toggleTask}>
                       <input type="hidden" name="id" value={t.id} />
-                      <button aria-label={t.done ? `Mark "${t.title}" as not done` : `Mark "${t.title}" as done`} style={{ width: 24, height: 24, borderRadius: 7, border: `1.5px solid ${t.done ? "var(--coral)" : "var(--line-2)"}`, background: t.done ? "var(--coral)" : "var(--paper)", color: "#fff", display: "grid", placeItems: "center", cursor: "pointer" }}>
+                      <button aria-label={t.done ? `Mark "${t.title}" as not done` : `Mark "${t.title}" as done`} style={{ width: 24, height: 24, borderRadius: 7, border: `1.5px solid ${t.done ? "var(--accent)" : "var(--line-2)"}`, background: t.done ? "var(--accent)" : "var(--paper)", color: "#fff", display: "grid", placeItems: "center", cursor: "pointer" }}>
                         {t.done && <Icon name="check" width={15} height={15} strokeWidth={2.4} />}
                       </button>
                     </form>

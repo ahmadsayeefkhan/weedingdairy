@@ -1,10 +1,10 @@
 export const EVENT_TYPES = ["HOLUD", "MEHENDI", "WEDDING", "RECEPTION"] as const;
 
-/** Event colour-coding is the app's signature: turmeric Holud, henna Mehendi, coral Wedding, plum Reception. */
+/** Event colour-coding is the app's signature: turmeric Holud, henna Mehendi, diary-red Wedding, plum Reception. */
 export const EVENT_META: Record<string, { name: string; bn: string; color: string; soft: string }> = {
   HOLUD: { name: "Gaye Holud", bn: "গায়ে হলুদ", color: "#C98A12", soft: "#FBEFD2" },
   MEHENDI: { name: "Mehendi", bn: "মেহেদি", color: "#5F7F3A", soft: "#E7EEDC" },
-  WEDDING: { name: "Wedding", bn: "বিয়ে", color: "#D97566", soft: "#FBE6E2" },
+  WEDDING: { name: "Wedding", bn: "বিয়ে", color: "#B3242B", soft: "#F6E4E2" },
   RECEPTION: { name: "Reception", bn: "বৌভাত", color: "#7A5C8E", soft: "#ECE4F1" },
   OTHER: { name: "Other", bn: "অন্যান্য", color: "#6B6770", soft: "#EEEDEF" },
 };
@@ -16,12 +16,12 @@ export const TASK_CATEGORIES: Record<string, string> = {
 
 /** Default budget split. Assumption A4 in plan/05_raid.md, not market data. */
 export const BUDGET_SPLIT: { key: string; name: string; pct: number; color: string }[] = [
-  { key: "VENUE", name: "Venue", pct: 30, color: "#D97566" },
+  { key: "VENUE", name: "Venue", pct: 30, color: "#B3242B" },
   { key: "CATERING", name: "Catering", pct: 25, color: "#C98A12" },
   { key: "DECOR", name: "Decor", pct: 10, color: "#5F7F3A" },
   { key: "PHOTO", name: "Photography & Video", pct: 10, color: "#7A5C8E" },
   { key: "ATTIRE", name: "Attire & Jewellery", pct: 10, color: "#B04A5A" },
-  { key: "MAKEUP", name: "Makeup & Mehendi", pct: 4, color: "#E8A598" },
+  { key: "MAKEUP", name: "Makeup & Mehendi", pct: 4, color: "#D99A94" },
   { key: "INVITES", name: "Invitations & Gifts", pct: 3, color: "#3E7C8C" },
   { key: "MUSIC", name: "Music & Entertainment", pct: 3, color: "#8C6A3E" },
   { key: "TRANSPORT", name: "Transport", pct: 2, color: "#4A4E69" },

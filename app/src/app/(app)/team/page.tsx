@@ -36,7 +36,7 @@ export default async function TeamPage() {
               <div key={m.id} className="row wrap" style={{ gap: 10 }}>
                 <span className="avatar">{initials(m.user.name)}</span>
                 <div className="grow"><div>{m.user.name}{m.userId === user.id && <span className="faint"> (you)</span>}</div><div className="tiny muted">{m.user.email}</div></div>
-                {m.userId === user.id ? <span className="badge coral">{ROLES[m.role].label}</span> : (
+                {m.userId === user.id ? <span className="badge accent">{ROLES[m.role].label}</span> : (
                   <div className="row" style={{ gap: 6 }}>
                     <form action={changeRole} className="row" style={{ gap: 4 }}>
                       <input type="hidden" name="id" value={m.id} />

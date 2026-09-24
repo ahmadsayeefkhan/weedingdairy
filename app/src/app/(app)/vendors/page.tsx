@@ -67,23 +67,23 @@ export default async function VendorsPage({ searchParams }: { searchParams: Prom
               </Link>
               <div className="vbody">
                 <div className="row between">
-                  <Link href={`/vendors/${v.slug}`} style={{ fontSize: 17 }} className="ellipsis grow">{v.name}</Link>
+                  <Link href={`/vendors/${v.slug}`} className="vname ellipsis grow">{v.name}</Link>
                   {editable && (
                     <form action={toggleShortlist}><input type="hidden" name="vendorId" value={v.id} />
                       <button className="linkish" aria-label={shortlist.has(v.id) ? `Remove ${v.name} from shortlist` : `Add ${v.name} to shortlist`} aria-pressed={shortlist.has(v.id)}>
-                        <Icon name="heart" width={19} height={19} fill={shortlist.has(v.id) ? "var(--coral)" : "none"} />
+                        <Icon name="heart" width={19} height={19} fill={shortlist.has(v.id) ? "var(--accent)" : "none"} />
                       </button>
                     </form>
                   )}
                 </div>
                 <div className="row small muted" style={{ gap: 5 }}><Icon name="pin" width={14} height={14} />{v.area ? `${v.area}, ` : ""}{v.city}</div>
                 <div className="row wrap" style={{ gap: 5 }}>
-                  <span className="badge coral">{VENDOR_CATEGORIES[v.category]?.name}</span>
+                  <span className="badge accent">{VENDOR_CATEGORIES[v.category]?.name}</span>
                   {v.tags.split(",").filter(Boolean).slice(0, 2).map((t) => <span key={t} className="badge">{t}</span>)}
                 </div>
                 <div className="row between mt-s">
                   <span className="small"><span className="faint">from </span><b className="num">{taka(v.startingPrice)}</b>{v.category === "CATERING" ? <span className="faint">/plate</span> : null}</span>
-                  <span className="small" style={{ color: "var(--coral-ink)", letterSpacing: 1 }} title={PRICE_TIERS[v.priceTier]}>{"৳".repeat(v.priceTier)}</span>
+                  <span className="small" style={{ color: "var(--accent-ink)", letterSpacing: 1 }} title={PRICE_TIERS[v.priceTier]}>{"৳".repeat(v.priceTier)}</span>
                 </div>
               </div>
             </div>

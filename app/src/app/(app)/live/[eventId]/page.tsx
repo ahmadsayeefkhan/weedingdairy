@@ -14,7 +14,7 @@ import { broadcast, checkIn, setItemStatus, setVendorReadiness } from "../action
 
 export const metadata = { title: "Live Mode" };
 
-const READY: Record<string, string> = { STANDBY: "", SETUP: "warn", READY: "coral", ACTIVE: "ok" };
+const READY: Record<string, string> = { STANDBY: "", SETUP: "warn", READY: "accent", ACTIVE: "ok" };
 
 export default async function LiveEvent({ params, searchParams }: { params: Promise<{ eventId: string }>; searchParams: Promise<{ q?: string }> }) {
   const { eventId } = await params;
