@@ -64,6 +64,21 @@ npm run seed && npm run e2e       # 42 real-browser checks of the acceptance cri
 | `ANTHROPIC_API_KEY` | Optional. Turns on Claude for the assistant |
 | `AI_MODEL` | Optional. Claude model id (default `claude-opus-5`) |
 
+## Deploying (e.g. Hostinger)
+
+Use a plan that runs Node.js apps with persistent storage: Hostinger's Node.js web app hosting or a VPS. The app keeps its SQLite database and uploaded photos on disk, so the folder must survive restarts and redeploys.
+
+- **App root:** `app/`
+- **Node:** 20.9 or newer
+- **Install and build:** `npm ci && npm run db:setup && npm run build`
+- **Start:** `npm start`, which listens on the `PORT` the host provides
+- **Demo data (optional, erases existing data):** `npm run seed`
+- **Environment variables** (in the host panel or `app/.env`):
+  - `DATABASE_URL="file:./prod.db"`
+  - Remove `APP_TODAY` so the app uses the real date.
+  - Optional: `ANTHROPIC_API_KEY` and `AI_MODEL`.
+- **Back up** `app/prisma/prod.db` and `app/uploads/`. Both are excluded from git.
+
 ## Stubbed or placeholder
 
 - **Payments** are simulated (sandbox checkout; no money moves). The gateway (bKash / Nagad / SSLCommerz) is for Phase 2.
