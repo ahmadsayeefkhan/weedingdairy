@@ -15,7 +15,7 @@ export default async function VendorReviews() {
     <div className="stack-lg">
       <PageHead title="Reviews" sub="Verified feedback from couples who booked you" />
       <section className="card row wrap" style={{ gap: 30 }}>
-        <div><div style={{ fontSize: 48, fontWeight: 300 }}>{avg.count ? avg.overall.toFixed(1) : "–"}</div><Stars value={avg.overall} /><div className="small muted">{avg.count} reviews</div></div>
+        <div><div className="serif" style={{ fontSize: 52, lineHeight: 1.1 }}>{avg.count ? avg.overall.toFixed(1) : "–"}</div><Stars value={avg.overall} /><div className="small muted">{avg.count} reviews</div></div>
         <div className="grow grid g2" style={{ minWidth: 260 }}>
           {([["Punctuality", avg.punctuality], ["Behavior", avg.behavior], ["Quality of work", avg.quality], ["Value for money", avg.value]] as const).map(([k, val]) => (
             <div key={k}><div className="row between small"><span>{k}</span><b>{val.toFixed(1)}</b></div><Bar value={val} max={5} thin /></div>

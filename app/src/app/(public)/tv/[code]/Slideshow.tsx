@@ -31,13 +31,13 @@ export default function Slideshow({ code, initial, title, sub, qr, color }: { co
         // eslint-disable-next-line @next/next/no-img-element
         <img key={p.id} src={p.src} alt={p.caption ?? `Photo by ${p.by}`} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", animation: "tvfade 1s ease" }} />
       ) : (
-        <div style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", fontSize: 28, fontWeight: 300 }}>Scan the code to share the first photo</div>
+        <div style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", fontSize: 30, fontFamily: "var(--font-display)" }}>Scan the code to share the first photo</div>
       )}
       <style>{`@keyframes tvfade{from{opacity:0;transform:scale(1.02)}to{opacity:1;transform:none}}`}</style>
       <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "60px 40px 30px", background: "linear-gradient(transparent, rgba(0,0,0,.75))", display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 24 }}>
         <div>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: color, padding: "4px 12px", borderRadius: 99, fontSize: 13, letterSpacing: ".15em" }}>● LIVE</div>
-          <div style={{ fontSize: 40, fontWeight: 300, marginTop: 10 }}>{title}</div>
+          <div className="serif" style={{ fontSize: 44, marginTop: 10 }}>{title}</div>
           <div style={{ opacity: 0.8 }}>{sub}{p ? ` · photo by ${p.by}` : ""}</div>
         </div>
         <div style={{ textAlign: "center", fontSize: 13 }}>

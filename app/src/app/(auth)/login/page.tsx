@@ -30,7 +30,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
         <div className="card stack-lg" style={{ padding: 26 }}>
           <div>
             <h1 style={{ fontSize: 24 }}>Welcome back</h1>
-            <p className="muted" style={{ fontStyle: "italic", fontWeight: 300 }}>Sign in to continue planning your big day.</p>
+            <p className="muted">Sign in to continue planning your big day.</p>
           </div>
           <ActionForm action={login} className="stack">
             <input type="hidden" name="next" value={next ?? ""} />

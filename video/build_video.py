@@ -1,13 +1,15 @@
 """Builds the Wedding Diary explainer video from app screenshots + a voice-over.
 
+Frames are drawn by Chrome (app/scripts/video-frames.mjs) in the brand's own type and colours: Playfair Display,
+Mulish and Tiro Bangla on ink / ivory with the diary-red ribbon (see Current Brand Guideline and plan/05_raid.md D2).
 Everything runs locally except the voice: edge-tts (free Microsoft neural voices, no account or credits).
 If edge-tts is unavailable it falls back to the offline Windows voice (System.Speech).
 
 Run from the project root:  python video/build_video.py
 Output: video/Wedding-Diary-App-Tour.mp4 (+ .srt subtitles)
 """
-import asyncio, os, re, subprocess, sys, wave, shutil
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+import asyncio, json, os, subprocess, sys, wave, shutil
+from PIL import Image
 import imageio_ffmpeg
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,9 +22,7 @@ W, H, FPS = 1920, 1080, 30
 VOICE_EN = "en-IN-NeerjaNeural"   # South Asian English, warm female voice
 VOICE_BN = "bn-BD-NabanitaNeural"  # Bangladeshi Bangla
 
-CORAL, CORAL_INK, BLUSH, INK, MUTED = (217, 117, 102), (169, 73, 59), (251, 243, 240), (43, 37, 48), (110, 101, 112)
-F = "C:/Windows/Fonts/"
-def font(name, size): return ImageFont.truetype(F + name, size)
+IVORY = "0xFAF7F2"  # fades go through the brand's ivory page colour
 
 # (id, layout, image(s), eyebrow, title, subtitle, narration, [bangla_line])
 SCENES = [
@@ -86,131 +86,18 @@ SCENES = [
 
 
 # ---------- frames ----------
-def background():
-    bg = Image.new("RGB", (W, H), BLUSH)
-    glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    d = ImageDraw.Draw(glow)
-    d.ellipse([W - 620, -420, W + 380, 520], fill=(255, 139, 122, 60))
-    d.ellipse([-420, H - 420, 460, H + 420], fill=(217, 117, 102, 40))
-    glow = glow.filter(ImageFilter.GaussianBlur(90))
-    return Image.alpha_composite(bg.convert("RGBA"), glow)
-
-
-def rounded(img, r):
-    mask = Image.new("L", img.size, 0)
-    ImageDraw.Draw(mask).rounded_rectangle([0, 0, img.size[0] - 1, img.size[1] - 1], r, fill=255)
-    out = Image.new("RGBA", img.size, (0, 0, 0, 0))
-    out.paste(img.convert("RGBA"), (0, 0), mask)
-    return out
-
-
-def shadowed(canvas, img, xy, r=22, blur=28, alpha=70):
-    x, y = xy
-    sh = Image.new("RGBA", (img.size[0] + 160, img.size[1] + 160), (0, 0, 0, 0))
-    ImageDraw.Draw(sh).rounded_rectangle([80, 95, 80 + img.size[0], 95 + img.size[1]], r, fill=(120, 50, 40, alpha))
-    sh = sh.filter(ImageFilter.GaussianBlur(blur))
-    canvas.alpha_composite(sh, (x - 80, y - 80))
-    canvas.alpha_composite(rounded(img, r), (x, y))
-
-
-def brand(d, x=80, y=56):
-    d.text((x, y), "Wedding Diary", font=font("seguisb.ttf", 30), fill=INK)
-    d.text((x + 2, y + 40), "B A N G L A D E S H", font=font("segoeui.ttf", 15), fill=CORAL_INK)
-
-
-def heading(d, eyebrow, title, sub, x, y, max_w):
-    if eyebrow:
-        d.text((x + 22, y), eyebrow.upper(), font=font("seguisb.ttf", 18), fill=CORAL_INK, spacing=4)
-        y += 34
-    tf = font("segoeuil.ttf", 50)
-    lines = wrap(d, title, tf, max_w)
-    top = y
-    for ln in lines:
-        d.text((x + 22, y), ln, font=tf, fill=CORAL_INK)
-        y += 60
-    if sub:
-        d.text((x + 24, y + 4), sub, font=font("segoeuii.ttf", 24), fill=MUTED)
-        y += 40
-    d.rounded_rectangle([x, top + 8, x + 6, y - 6], 3, fill=CORAL)
-    return y
-
-
-def wrap(d, text, f, max_w):
-    words, lines, cur = text.split(), [], ""
-    for w_ in words:
-        t = (cur + " " + w_).strip()
-        if d.textlength(t, font=f) <= max_w: cur = t
-        else: lines.append(cur); cur = w_
-    if cur: lines.append(cur)
-    return lines
-
-
-def frame_wide(s):
-    _, _, imgs, eyebrow, title, sub, *_ = s
-    c = background(); d = ImageDraw.Draw(c)
-    brand(d)
-    shot = Image.open(os.path.join(SHOTS, imgs[0])).convert("RGB")
-    # left column title, right column screenshot
-    heading(d, eyebrow, title, sub, 80, 260, 420)
-    tw = 1230
-    th = int(shot.height * tw / shot.width)
-    if th > 900: th = 900; tw = int(shot.width * th / shot.height)
-    shot = shot.resize((tw, th), Image.LANCZOS)
-    shadowed(c, shot, (W - tw - 110, (H - th) // 2))
-    return c
-
-
-def frame_phone(s):
-    _, _, imgs, eyebrow, title, sub, *_ = s
-    c = background(); d = ImageDraw.Draw(c)
-    brand(d)
-    shot = Image.open(os.path.join(SHOTS, imgs[0])).convert("RGB")
-    ph = 900; pw = int(shot.width * ph / shot.height)
-    shot = shot.resize((pw, ph), Image.LANCZOS)
-    # phone bezel
-    bez = Image.new("RGBA", (pw + 28, ph + 28), (0, 0, 0, 0))
-    ImageDraw.Draw(bez).rounded_rectangle([0, 0, pw + 27, ph + 27], 52, fill=(34, 28, 36, 255))
-    bez.alpha_composite(rounded(shot, 40), (14, 14))
-    x = 1180
-    shadowed(c, bez, (x, (H - ph - 28) // 2), r=52)
-    heading(d, eyebrow, title, sub, 180, 380, 800)
-    return c
-
-
-def frame_title(s):
-    _, _, imgs, _, title, sub, _, *bn = s
-    c = Image.new("RGBA", (W, H))
-    d = ImageDraw.Draw(c)
-    for y in range(H):  # coral gradient like the splash screen
-        t = y / H
-        col = tuple(int(a * (1 - t) + b * t) for a, b in zip((255, 139, 122), (192, 90, 77)))
-        d.line([(0, y), (W, y)], fill=col + (255,))
-    ring = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    ImageDraw.Draw(ring).ellipse([W - 700, H - 600, W + 300, H + 400], outline=(255, 255, 255, 70), width=2)
-    c.alpha_composite(ring)
-    # open-book monogram
-    cx, cy = W // 2, 300
-    d.ellipse([cx - 90, cy - 90, cx + 90, cy + 90], outline=(255, 255, 255, 200), width=3)
-    book = [(cx, cy + 45), (cx - 22, cy + 28), (cx - 62, cy + 24), (cx - 62, cy - 30), (cx - 22, cy - 26), (cx, cy - 8), (cx + 22, cy - 26), (cx + 62, cy - 30), (cx + 62, cy + 24), (cx + 22, cy + 28), (cx, cy + 45)]
-    d.line(book, fill="white", width=5, joint="curve")
-    d.line([(cx, cy - 8), (cx, cy + 45)], fill="white", width=5)
-    tf = font("segoeuil.ttf", 110)
-    d.text((W // 2, 500), title, font=tf, fill="white", anchor="mm")
-    d.text((W // 2, 600), "B A N G L A D E S H", font=font("segoeui.ttf", 28), fill=(255, 255, 255, 220), anchor="mm")
-    d.text((W // 2, 680), sub, font=font("segoeuil.ttf", 38), fill="white", anchor="mm")
-    if bn:  # Bangla needs proper shaping, which Pillow lacks here: render it with Chrome
-        png = os.path.join(WORK, "bn_greeting.png")
-        subprocess.run(["node", "scripts/bn-text.mjs", bn[0], png, "64", "#ffffff"], cwd=os.path.join(ROOT, "app"), check=True)
-        t = Image.open(png).convert("RGBA")
-        c.alpha_composite(t, ((W - t.width) // 2, 790 - t.height // 2))
-    return c
-
-
-def frame_outro(s):
-    c = frame_phone(s)
-    d = ImageDraw.Draw(c)
-    d.text((180, 700), "weddingdiary.com.bd  ·  @weddingdiarybd", font=font("segoeui.ttf", 28), fill=CORAL_INK)
-    return c
+def render_frames():
+    """Writes one PNG per scene with Chrome, so text uses the brand web fonts."""
+    jobs = []
+    for i, s in enumerate(SCENES):
+        sid, layout, imgs, eyebrow, title, sub, _, *bn = s
+        img = os.path.join(SHOTS, imgs[0])
+        w, h = Image.open(img).size
+        jobs.append({"out": os.path.join(WORK, f"{i:02}_{sid}.png"), "layout": "outro" if sid == "outro" else layout,
+                     "img": img, "w": w, "h": h, "eyebrow": eyebrow, "title": title, "sub": sub, "bn": bn[0] if bn else ""})
+    spec = os.path.join(WORK, "frames.json")
+    with open(spec, "w", encoding="utf-8") as fh: json.dump(jobs, fh, ensure_ascii=False)
+    subprocess.run(["node", "scripts/video-frames.mjs", spec], cwd=os.path.join(ROOT, "app"), check=True)
 
 
 # ---------- voice ----------
@@ -250,10 +137,10 @@ def main():
     os.makedirs(WORK, exist_ok=True)
     use_edge = True
     segments, srt, clock = [], [], 0.0
+    render_frames()
     for i, s in enumerate(SCENES):
         sid, layout, _, _, _, _, narration, *bn = s
         png = os.path.join(WORK, f"{i:02}_{sid}.png")
-        (frame_title if layout == "title" else frame_outro if sid == "outro" else frame_phone if layout == "phone" else frame_wide)(s).convert("RGB").save(png)
 
         # narration (optional Bangla line first)
         wav = os.path.join(WORK, f"{i:02}_{sid}.wav")
@@ -292,7 +179,7 @@ def main():
         seg = os.path.join(WORK, f"{i:02}_{sid}.mp4")
         # slow push-in (Ken Burns) on a 2x image to avoid zoompan jitter, fade in/out
         vf = (f"scale={W * 2}:{H * 2},zoompan=z='min(1+0.0002*on,1.025)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={W}x{H}:fps={FPS},"
-              f"fade=t=in:st=0:d=0.4:color=0xFBF3F0,fade=t=out:st={dur - 0.45:.2f}:d=0.45:color=0xFBF3F0,format=yuv420p")
+              f"fade=t=in:st=0:d=0.4:color={IVORY},fade=t=out:st={dur - 0.45:.2f}:d=0.45:color={IVORY},format=yuv420p")
         af = f"loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000,adelay={int(lead * 1000)}|{int(lead * 1000)},apad,atrim=0:{dur:.2f},afade=t=out:st={dur - 0.3:.2f}:d=0.3"
         run([FFMPEG, "-y", "-loglevel", "error", "-loop", "1", "-framerate", str(FPS), "-i", png, "-i", wav,
              "-filter_complex", f"[0:v]{vf}[v];[1:a]{af}[a]", "-map", "[v]", "-map", "[a]", "-t", f"{dur:.2f}",

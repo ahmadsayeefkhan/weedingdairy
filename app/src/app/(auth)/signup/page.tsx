@@ -27,7 +27,7 @@ export default async function SignupPage({ searchParams }: { searchParams: Promi
           </div>
           <div>
             <h1 style={{ fontSize: 24 }}>{vendor ? "List your business" : sp.invite ? "Join the wedding team" : "Start your wedding diary"}</h1>
-            <p className="muted" style={{ fontStyle: "italic", fontWeight: 300 }}>
+            <p className="muted">
               {vendor ? "Reach couples planning across Bangladesh. We review every listing before it goes live." : "Plan every Holud, Mehendi and Reception in one place."}
             </p>
           </div>

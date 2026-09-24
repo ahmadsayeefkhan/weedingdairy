@@ -3,54 +3,65 @@
 <head>
 <meta charset="utf-8">
 <title>Wedding Diary User Manual</title>
-<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,300&family=Hind+Siliguri:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Mulish:ital,wght@0,400;0,600;0,700;1,400&family=Hind+Siliguri:wght@400;500&family=Tiro+Bangla&display=swap" rel="stylesheet">
 <style>
-  :root { --coral:#D97566; --coral-ink:#A9493B; --soft:#FBE6E2; --blush:#FBF3F0; --ink:#2B2530; --muted:#6E6570; --line:#F0E3DF; }
+  /* Wedding Diary brand guideline: ink, white, ivory, one "diary red" accent; Playfair Display + Mulish. */
+  :root { --accent:#B3242B; --accent-ink:#9E1F26; --ivory:#FAF7F2; --ink:#111111; --muted:#555350; --faint:#85807A; --line:#E7E2DF; }
   @page { size: A4; margin: 16mm 15mm 16mm 15mm; }
   * { box-sizing: border-box; }
-  body { font-family: Jost, "Hind Siliguri", sans-serif; color: var(--ink); margin: 0; font-size: 10.5pt; line-height: 1.5; }
-  .cover { height: 262mm; display: flex; flex-direction: column; justify-content: space-between; padding: 18mm 14mm; color: #fff; border-radius: 6mm;
-           background: radial-gradient(120% 90% at 100% 0%, #FF8B7A, #D97566 55%, #BF5A4B); page-break-after: always; }
-  .cover h1 { font-size: 40pt; font-weight: 300; line-height: 1.05; margin: 0; }
-  .cover .eyebrow { letter-spacing: .4em; font-size: 9pt; opacity: .85; }
-  .cover p { font-size: 13pt; font-weight: 300; max-width: 120mm; }
+  body { font-family: Mulish, "Hind Siliguri", sans-serif; color: var(--ink); margin: 0; font-size: 10.5pt; line-height: 1.55; }
+  .cover { position: relative; height: 262mm; display: flex; flex-direction: column; justify-content: space-between; padding: 22mm 16mm 18mm 26mm;
+           color: #F6F2EC; background: var(--ink); border-radius: 4mm; page-break-after: always; }
+  .cover::before { content: ""; position: absolute; left: 11mm; top: 0; width: 6mm; height: 34mm; background: var(--accent);
+                   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%); }
+  .cover::after { content: ""; position: absolute; inset: 4mm; border: 0.25mm solid rgba(255,255,255,.12); border-radius: 2.5mm; }
+  .cover h1 { font-family: "Playfair Display", Georgia, serif; font-size: 46pt; font-weight: 400; line-height: 1.05; margin: 0 0 5mm; color: #fff; }
+  .cover .eyebrow { letter-spacing: .3em; font-size: 8.5pt; font-weight: 700; color: rgba(246,242,236,.7); }
+  .cover .eyebrow b { color: #fff; }
+  .cover p { font-size: 13pt; max-width: 125mm; color: rgba(246,242,236,.85); }
+  .cover .logo { width: 22mm; height: 22mm; margin-bottom: 8mm; }
   section { page-break-before: always; }
   section.first { page-break-before: auto; }
-  h2 { font-weight: 500; color: var(--coral-ink); font-size: 20pt; margin: 0 0 1mm; border-left: 1.2mm solid var(--coral); padding-left: 4mm; }
-  .sub { font-style: italic; font-weight: 300; color: var(--muted); margin: 0 0 6mm 5.2mm; }
-  h3 { font-weight: 500; font-size: 12.5pt; margin: 6mm 0 2mm; }
+  h2 { position: relative; font-family: "Playfair Display", Georgia, serif; font-weight: 400; color: var(--ink); font-size: 22pt; margin: 0 0 1mm; padding-left: 7mm; }
+  h2::before { content: ""; position: absolute; left: 0; top: 0.5mm; width: 3.2mm; height: 9.5mm; background: var(--accent);
+               clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 76%, 0 100%); }
+  .sub { color: var(--muted); margin: 0 0 6mm 7mm; }
+  h3 { font-family: "Playfair Display", Georgia, serif; font-weight: 400; font-size: 14pt; margin: 6mm 0 2mm; break-after: avoid; }
   figure { margin: 3mm 0 5mm; break-inside: avoid; }
-  figure img { width: 100%; max-height: 100mm; object-fit: cover; object-position: top left; border: 0.3mm solid var(--line); border-radius: 2.5mm; display: block; }
+  figure img { width: 100%; max-height: 100mm; object-fit: cover; object-position: top left; border: 0.3mm solid var(--line); border-radius: 1.5mm; display: block; }
   .phone figure img { max-height: 118mm; }
   figcaption { font-size: 9pt; color: var(--muted); margin-top: 1.5mm; }
+  figcaption b { color: var(--ink); }
   .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; align-items: start; }
   .phone { display: grid; grid-template-columns: 58mm 1fr; gap: 8mm; align-items: start; break-inside: avoid; }
   ol, ul { padding-left: 5mm; margin: 1mm 0 3mm; }
   li { margin: 1mm 0; }
+  li::marker { color: var(--accent); }
   table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 2mm 0 4mm; }
   th, td { text-align: left; padding: 2mm; border-bottom: 0.3mm solid var(--line); vertical-align: top; }
-  th { font-weight: 500; font-size: 8pt; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
-  code { background: var(--blush); padding: 0.3mm 1.5mm; border-radius: 1mm; font-size: 9pt; }
-  .note { background: var(--soft); border-radius: 2mm; padding: 3mm 4mm; font-size: 9.5pt; margin: 3mm 0; break-inside: avoid; }
+  th { font-weight: 700; font-size: 7.5pt; letter-spacing: .18em; text-transform: uppercase; color: var(--faint); }
+  code { background: var(--ivory); border: 0.2mm solid var(--line); padding: 0.3mm 1.5mm; border-radius: 1mm; font-size: 9pt; }
+  .note { background: var(--ivory); border: 0.25mm solid var(--line); border-left: 0.9mm solid var(--accent); border-radius: 1.5mm; padding: 3mm 4mm; font-size: 9.5pt; margin: 3mm 0; break-inside: avoid; }
   .bn { font-family: "Hind Siliguri", sans-serif; }
 </style>
 </head>
 <body>
 
 <div class="cover">
-  <div class="eyebrow">WEDDING DIARY · BANGLADESH</div>
+  <div class="eyebrow"><b>WEDDING DIARY</b> · BANGLADESH</div>
   <div>
+    <svg class="logo" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-label="Wedding Diary"><path d="M24 38C19 33 10 32 4 33V13c6-1 15 0 20 5 5-5 14-6 20-5v20c-6-1-15 0-20 5z"/><path d="M24 18v20"/><path d="M24 16c-2.6-3.6-7.6-2.2-7.6 1.6 0 3.6 7.6 8 7.6 8s7.6-4.4 7.6-8c0-3.8-5-5.2-7.6-1.6z" fill="#fff" fill-opacity=".15"/></svg>
     <h1>User manual</h1>
     <p>How couples, families, planners, guests, vendors and the Wedding Diary team use WeddingOS V1, from the first Holud to the last Reception photo.</p>
   </div>
-  <div style="font-size:10pt;opacity:.9">Version 1 · 24 September 2026 · Powered by WeddingOS.ai</div>
+  <div style="font-size:9.5pt;color:rgba(246,242,236,.7)">Version 1 · 24 September 2026 · Powered by WeddingOS.ai</div>
 </div>
 
 <section class="first">
   <h2>Getting started</h2>
   <p class="sub">Open the app, sign in, and you land on the screen for your role</p>
   <div class="pair">
-    <figure><img src="shots/splash.png" alt="Splash screen"><figcaption>The coral splash screen opens the app.</figcaption></figure>
+    <figure><img src="shots/splash.png" alt="Splash screen"><figcaption>The splash screen opens the app with the Wedding Diary mark.</figcaption></figure>
     <figure><img src="shots/onboarding.png" alt="Onboarding"><figcaption>Four onboarding slides: Plan, Guests, Budget, Vendors. Tap Skip at any time.</figcaption></figure>
   </div>
   <h3>Demo accounts (password <code>Diary@2026</code>)</h3>
@@ -70,7 +81,7 @@
 <section>
   <h2>The couple: plan</h2>
   <p class="sub">Your wedding command centre</p>
-  <figure><img src="shots/couple-dashboard.png" alt="Dashboard"><figcaption><b>Dashboard.</b> Countdown, planning progress, the coloured ribbon of your events (Holud turmeric, Mehendi henna, Wedding coral, Reception plum), your budget, guests, vendors and tasks, and a list of what needs your attention.</figcaption></figure>
+  <figure><img src="shots/couple-dashboard.png" alt="Dashboard"><figcaption><b>Dashboard.</b> Countdown, planning progress, the coloured ribbon of your events (Holud turmeric, Mehendi henna, Wedding red, Reception plum), your budget, guests, vendors and tasks, and a list of what needs your attention.</figcaption></figure>
   <figure><img src="shots/couple-event.png" alt="Event timeline"><figcaption><b>Events.</b> Each event has an hour-by-hour timeline. Tap an item to edit it; if you change a time, the whole team is notified.</figcaption></figure>
 </section>
 

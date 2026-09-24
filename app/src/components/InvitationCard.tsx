@@ -19,7 +19,7 @@ export function InvitationCard({ template, lang, message, bride, groom, date, ve
       <div className="stack" style={{ gap: 10, position: "relative" }}>
         {bn && <div className="bn" style={{ fontSize: 26, color: th.accent, marginTop: 10 }}>{th.bnTitle}</div>}
         {en && <div style={{ fontSize: 11, letterSpacing: "0.34em", textTransform: "uppercase", color: th.accent }}>{th.enTitle}</div>}
-        {en && <div style={{ fontStyle: "italic", fontWeight: 300, fontSize: 14 }}>{message}</div>}
+        {en && <div className="serif" style={{ fontStyle: "italic", fontSize: 15 }}>{message}</div>}
         <div className="serif" style={{ fontSize: 38, lineHeight: 1.1, margin: "6px 0" }}>{bride}<div style={{ fontSize: 22, color: th.accent }}>&amp;</div>{groom}</div>
         <div style={{ width: 60, height: 1, background: th.accent, margin: "0 auto" }} />
         {en && <div style={{ fontSize: 17 }}>{fmtDay(date)}, {fmtDate(date)}</div>}
