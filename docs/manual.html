@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wedding Diary User Manual</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,300&family=Hind+Siliguri:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --coral:#D97566; --coral-ink:#A9493B; --soft:#FBE6E2; --blush:#FBF3F0; --ink:#2B2530; --muted:#6E6570; --line:#F0E3DF; }
+  @page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+  * { box-sizing: border-box; }
+  body { font-family: Jost, "Hind Siliguri", sans-serif; color: var(--ink); margin: 0; font-size: 10.5pt; line-height: 1.5; }
+  .cover { height: 262mm; display: flex; flex-direction: column; justify-content: space-between; padding: 18mm 14mm; color: #fff; border-radius: 6mm;
+           background: radial-gradient(120% 90% at 100% 0%, #FF8B7A, #D97566 55%, #BF5A4B); page-break-after: always; }
+  .cover h1 { font-size: 40pt; font-weight: 300; line-height: 1.05; margin: 0; }
+  .cover .eyebrow { letter-spacing: .4em; font-size: 9pt; opacity: .85; }
+  .cover p { font-size: 13pt; font-weight: 300; max-width: 120mm; }
+  section { page-break-before: always; }
+  section.first { page-break-before: auto; }
+  h2 { font-weight: 500; color: var(--coral-ink); font-size: 20pt; margin: 0 0 1mm; border-left: 1.2mm solid var(--coral); padding-left: 4mm; }
+  .sub { font-style: italic; font-weight: 300; color: var(--muted); margin: 0 0 6mm 5.2mm; }
+  h3 { font-weight: 500; font-size: 12.5pt; margin: 6mm 0 2mm; }
+  figure { margin: 3mm 0 5mm; break-inside: avoid; }
+  figure img { width: 100%; max-height: 100mm; object-fit: cover; object-position: top left; border: 0.3mm solid var(--line); border-radius: 2.5mm; display: block; }
+  .phone figure img { max-height: 118mm; }
+  figcaption { font-size: 9pt; color: var(--muted); margin-top: 1.5mm; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; align-items: start; }
+  .phone { display: grid; grid-template-columns: 58mm 1fr; gap: 8mm; align-items: start; break-inside: avoid; }
+  ol, ul { padding-left: 5mm; margin: 1mm 0 3mm; }
+  li { margin: 1mm 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 2mm 0 4mm; }
+  th, td { text-align: left; padding: 2mm; border-bottom: 0.3mm solid var(--line); vertical-align: top; }
+  th { font-weight: 500; font-size: 8pt; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+  code { background: var(--blush); padding: 0.3mm 1.5mm; border-radius: 1mm; font-size: 9pt; }
+  .note { background: var(--soft); border-radius: 2mm; padding: 3mm 4mm; font-size: 9.5pt; margin: 3mm 0; break-inside: avoid; }
+  .bn { font-family: "Hind Siliguri", sans-serif; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="eyebrow">WEDDING DIARY · BANGLADESH</div>
+  <div>
+    <h1>User manual</h1>
+    <p>How couples, families, planners, guests, vendors and the Wedding Diary team use WeddingOS V1, from the first Holud to the last Reception photo.</p>
+  </div>
+  <div style="font-size:10pt;opacity:.9">Version 1 · 24 September 2026 · Powered by WeddingOS.ai</div>
+</div>
+
+<section class="first">
+  <h2>Getting started</h2>
+  <p class="sub">Open the app, sign in, and you land on the screen for your role</p>
+  <div class="pair">
+    <figure><img src="shots/splash.png" alt="Splash screen"><figcaption>The coral splash screen opens the app.</figcaption></figure>
+    <figure><img src="shots/onboarding.png" alt="Onboarding"><figcaption>Four onboarding slides: Plan, Guests, Budget, Vendors. Tap Skip at any time.</figcaption></figure>
+  </div>
+  <h3>Demo accounts (password <code>Diary@2026</code>)</h3>
+  <table>
+    <tr><th>Email</th><th>Role</th><th>What you'll see</th></tr>
+    <tr><td>couple@weddingdiary.test</td><td>Couple (admin)</td><td>Everything: budget, payments, team and settings</td></tr>
+    <tr><td>planner@weddingdiary.test</td><td>Planner (editor)</td><td>Events, checklist, guests, seating, invitations and vendors. No money</td></tr>
+    <tr><td>family@weddingdiary.test</td><td>Family (viewer)</td><td>Read-only schedule, guests and vendors</td></tr>
+    <tr><td>live@weddingdiary.test</td><td>Couple, Reception today</td><td>Live Mode and the Memory Vault</td></tr>
+    <tr><td>vendor@weddingdiary.test</td><td>Vendor</td><td>VendorOS for Dream Lens Studio</td></tr>
+    <tr><td>admin@weddingdiary.test</td><td>Platform admin</td><td>Vendor approval, reviews, AI log, outbox</td></tr>
+  </table>
+  <h3>Setting up a new wedding</h3>
+  <figure><img src="shots/setup.png" alt="Profile setup"><figcaption>Enter both names and the date (shown in the Bangla calendar too), then pick the city, venue, events and budget. Wedding Diary builds the events, a budget split and a checklist for you.</figcaption></figure>
+</section>
+
+<section>
+  <h2>The couple: plan</h2>
+  <p class="sub">Your wedding command centre</p>
+  <figure><img src="shots/couple-dashboard.png" alt="Dashboard"><figcaption><b>Dashboard.</b> Countdown, planning progress, the coloured ribbon of your events (Holud turmeric, Mehendi henna, Wedding coral, Reception plum), your budget, guests, vendors and tasks, and a list of what needs your attention.</figcaption></figure>
+  <figure><img src="shots/couple-event.png" alt="Event timeline"><figcaption><b>Events.</b> Each event has an hour-by-hour timeline. Tap an item to edit it; if you change a time, the whole team is notified.</figcaption></figure>
+</section>
+
+<section>
+  <h2>The couple: tasks and money</h2>
+  <p class="sub">Checklist, budget analytics and the payment scheduler</p>
+  <figure><img src="shots/couple-checklist.png" alt="Checklist"><figcaption><b>Checklist.</b> Tasks for venue, attire, catering and rituals, with due dates counted back from your wedding. Tick them off, reorder them, or add your own.</figcaption></figure>
+  <figure><img src="shots/couple-budget.png" alt="Budget"><figcaption><b>Budget.</b> Spending by category in taka (৳ lakh), over-budget warnings and a smart tip on where to move money. <i>Export PDF report</i> prints a clean copy for the family.</figcaption></figure>
+</section>
+
+<section>
+  <h2>The couple: payments and guests</h2>
+  <p class="sub">Never miss a vendor deadline or an RSVP</p>
+  <figure><img src="shots/couple-payments.png" alt="Payments"><figcaption><b>Payment scheduler.</b> When a vendor accepts, you get Booking (20%), Advance (50%) and Final Settlement (30%) milestones. <i>Pay now</i> opens a sandbox checkout (bKash, Nagad, card, bank or cash) and records the expense. No real money moves in V1.</figcaption></figure>
+  <figure><img src="shots/couple-guests.png" alt="Guests"><figcaption><b>Guests.</b> Add families with side, relation, events, seats and dietary needs; phone numbers are checked as Bangladeshi mobiles. Filter, export to CSV, or <i>Send invitations</i> to everyone still pending.</figcaption></figure>
+</section>
+
+<section>
+  <h2>The couple: seating and invitations</h2>
+  <p class="sub">Seat everyone and share an invitation in Bangla, English or both</p>
+  <figure><img src="shots/couple-seating.png" alt="Seating"><figcaption><b>Seating.</b> Add tables, seat confirmed guests one by one, or use <i>Auto-assign guests</i>, which keeps each family's side together and never goes over a table's capacity.</figcaption></figure>
+  <figure><img src="shots/couple-invitation.png" alt="Invitation"><figcaption><b>Invitations.</b> Choose the Holud, Wedding or Reception design and the language, then share the QR code or the personal RSVP links.</figcaption></figure>
+</section>
+
+<section>
+  <h2>The couple: vendors</h2>
+  <p class="sub">Verified vendors, AI matching and the Zero Panic Policy</p>
+  <figure><img src="shots/couple-marketplace.png" alt="Marketplace"><figcaption><b>Marketplace.</b> Filter by category, price (৳ to ৳৳৳) and city. The <i>AI match</i> score blends your remaining budget, city, verified ratings and availability on your date.</figcaption></figure>
+  <figure><img src="shots/couple-vendor.png" alt="Vendor profile"><figcaption><b>Vendor profile.</b> Packages, ratings for punctuality, behaviour, quality and value, and an availability check. If the vendor is booked on your date, backup vendors appear automatically.</figcaption></figure>
+</section>
+
+<section>
+  <h2>The couple: bookings, AI and team</h2>
+  <p class="sub">Track every request and plan together</p>
+  <figure><img src="shots/couple-bookings.png" alt="Bookings"><figcaption><b>Bookings.</b> Requests, confirmations and payment milestones in one list. After a confirmed booking you can write a verified review.</figcaption></figure>
+  <figure><img src="shots/couple-assistant.png" alt="AI assistant"><figcaption><b>Wedding AI.</b> Ask in English, <span class="bn">বাংলা</span> or Banglish (&ldquo;koto taka baki ache?&rdquo;). It reads your plan but never changes it. Without an API key it answers from your data in <i>scripted</i> mode.</figcaption></figure>
+</section>
+
+<section>
+  <h2>Family and team</h2>
+  <p class="sub">The right access for everyone</p>
+  <figure><img src="shots/couple-team.png" alt="Team"><figcaption>Invite parents, siblings or your planner by email. <b>Planner (editor)</b> manages the timeline, guests and vendors but can't see money. <b>Family (viewer)</b> can look but not change anything, and never sees guest phone numbers. The activity log shows who changed what.</figcaption></figure>
+  <figure><img src="shots/couple-settings.png" alt="Settings"><figcaption><b>Settings.</b> Wedding details, who can see your invitation page (public, guest-only or private), photo approval, notifications, English / <span class="bn">বাংলা</span>, and a download of all your data.</figcaption></figure>
+</section>
+
+<section>
+  <h2>Guests</h2>
+  <p class="sub">No app and no login: just the link or the QR code</p>
+  <div class="phone">
+    <figure><img src="shots/guest-rsvp.png" alt="RSVP"><figcaption>Personal RSVP page</figcaption></figure>
+    <div>
+      <h3>Replying to an invitation</h3>
+      <ol><li>Open the link the couple sent (WhatsApp, SMS or email).</li><li>Choose <i>Joyfully accept</i> or <i>Regretfully decline</i>, the number of seats, and any dietary needs.</li><li>Tap <i>Send RSVP</i>. You can come back to the same link and change your answer.</li></ol>
+      <div class="note">A general invitation link (from the QR code) is also available. People already on the guest list are asked to use their personal link, so nobody can change someone else's answer.</div>
+    </div>
+  </div>
+  <div class="phone">
+    <figure><img src="shots/guest-share.png" alt="Photo sharing"><figcaption>Photo sharing at the event</figcaption></figure>
+    <div>
+      <h3>Sharing photos on the day</h3>
+      <ol><li>Scan the QR code on the TV screen or table card.</li><li>Add your name for the credit and choose up to 10 photos (JPG, PNG or WebP, 8 MB each).</li><li>Photos appear on the big screen once the couple approves them.</li></ol>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>On the wedding day</h2>
+  <p class="sub">Live Mode for the couple and coordinators</p>
+  <figure><img src="shots/live-mode.png" alt="Live Mode"><figcaption><b>Live Mode.</b> See what's happening now and up next. <i>Start</i> and <i>Done</i> move through the timeline. Running late? <i>+15 min</i> moves every upcoming item and tells the team. Check guests in by name, track vendor readiness (standby → setup → ready → active), and broadcast an update or an SOS to the team and vendors.</figcaption></figure>
+  <figure><img src="shots/live-tv.png" alt="TV slideshow"><figcaption><b>TV slideshow.</b> Open it on the venue's smart TV. Approved photos play full screen with the QR code in the corner, and new uploads jump to the front.</figcaption></figure>
+</section>
+
+<section>
+  <h2>Memory Vault</h2>
+  <p class="sub">Every precious moment, organised by event</p>
+  <figure><img src="shots/live-vault.png" alt="Memory Vault"><figcaption>Albums for the Holud, Mehendi, Wedding and Reception, a favourites view, and a <i>To review</i> tab to approve or hide guest uploads. Download the originals at any time.</figcaption></figure>
+</section>
+
+<section>
+  <h2>Vendors: VendorOS</h2>
+  <p class="sub">Bookings, revenue and reputation in one place</p>
+  <figure><img src="shots/vendor-dashboard.png" alt="Vendor dashboard"><figcaption><b>Dashboard.</b> Money received, active bookings, new requests, rating, a booking trend by month and your next payout.</figcaption></figure>
+  <figure><img src="shots/vendor-bookings.png" alt="Vendor bookings"><figcaption><b>Bookings.</b> Accept or decline requests with a note. Accepting creates the couple's payment schedule. On the wedding day, set your status so the coordinator can see it.</figcaption></figure>
+</section>
+
+<section>
+  <h2>Vendors: your listing</h2>
+  <p class="sub">What couples see in the marketplace</p>
+  <figure><img src="shots/vendor-profile.png" alt="Vendor profile"><figcaption>Edit your profile, price range and specialities; add or change packages (your lowest price shows as &ldquo;from&rdquo;); and block the days you can't work. New listings go live after the Wedding Diary team approves them.</figcaption></figure>
+</section>
+
+<section>
+  <h2>Wedding Diary team: Admin</h2>
+  <p class="sub">Platform health and quality control</p>
+  <figure><img src="shots/admin-overview.png" alt="Admin overview"><figcaption><b>Overview.</b> Weddings, vendors, bookings and booking value, with live activity.</figcaption></figure>
+  <div class="pair">
+    <figure><img src="shots/admin-vendors.png" alt="Admin vendors"><figcaption><b>Vendors.</b> Approve new listings, feature top vendors, suspend problems.</figcaption></figure>
+    <figure><img src="shots/admin-ai.png" alt="AI log"><figcaption><b>AI log.</b> Every question to Wedding AI, which tools it used, tokens and cost. The <i>Message outbox</i> shows every SMS, WhatsApp and email (nothing is sent in V1).</figcaption></figure>
+  </div>
+  <div class="note"><b>What's simulated in V1:</b> payments (sandbox checkout), SMS / WhatsApp / email (outbox only), demo photos (generated artwork). Planned for later versions: native apps, AI face recognition and reels, live video streaming, AR, accommodation and transport.</div>
+</section>
+
+</body>
+</html>
